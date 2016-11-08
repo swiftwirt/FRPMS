@@ -14,3 +14,40 @@
  
  */
 
+func makeAllUppercase(list: [String]) -> [String] {
+    return list.map{ $0.uppercased() }
+}
+
+func convertAllToString(list: [Int]) -> [String]{
+    return list.map{ String($0) }
+}
+
+func keepOnlyOdds(list: [Int]) -> [Int]{
+    return list.filter{ $0%2 != 0 }
+}
+
+func startingWithA(list: [String]) -> [String]{
+    return list.filter{ $0.lowercased()[$0.startIndex] == "a" }
+}
+
+func computeProduct(list: [Int]) -> Int{
+    return list.reduce(1, *)
+}
+
+func concatenateAll(list: [String]) -> String{
+    return list.reduce("", +)
+}
+
+makeAllUppercase(list: ["hello", "World", "anything"])
+
+convertAllToString(list: [1, 3, 4, 5])
+
+keepOnlyOdds(list: [1, 2, 3, 4, 5, 6])
+
+startingWithA(list: ["Alex", "reilly", "Amy"])
+
+computeProduct(list: [1, 2, 3, 4, 5])
+
+concatenateAll(list: ["Alex", "Reilly", "Hello", "World"])
+
+

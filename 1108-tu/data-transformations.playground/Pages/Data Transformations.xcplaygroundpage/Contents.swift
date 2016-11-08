@@ -24,4 +24,4 @@
  10. recursive versions of `map`, `filter` and `reduce` 😏
  */
 
-
+func mappInts
