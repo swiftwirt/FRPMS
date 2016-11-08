@@ -24,4 +24,99 @@
  10. recursive versions of `map`, `filter` and `reduce` 😏
  */
 
-func mappInts
+func mapIntsToInts(array: [Int], transform: (Int) -> Int) -> [Int]{
+    var list: [Int] = []
+    
+    for number in array{
+        list.append(transform(number))
+    }
+    
+    return list
+}
+
+func mapIntsToStrings(array: [Int], transform: (Int) -> String) -> [String]{
+    var list: [String] = []
+    
+    for number in array{
+        list.append(transform(number))
+    }
+    
+    return list
+}
+
+func filterInts(array: [Int], isIncluded: (Int) -> Bool) -> [Int]{
+    var list: [Int] = []
+    
+    for number in array{
+        if isIncluded(number) {
+            list.append(number)
+        }
+    }
+    
+    return list
+}
+
+func filterStrings(array: [String], isIncluded: (String) -> Bool) -> [String]{
+    var list: [String] = []
+    
+    for item in array {
+        if isIncluded(item){
+            list.append(item)
+        }
+    }
+    
+    return list
+}
+
+
+func reduceIntsToInt(array: [Int], initial: Int, combine: (Int, Int) -> Int) -> Int{
+    var returnVal: Int = initial
+    
+    for item in array{
+        returnVal = combine(returnVal, item)
+    }
+    
+    return returnVal
+}
+
+func reduceStringsToStrings(array: [String], initial: String, combine: (String, String) -> String) -> String{
+    var returnVal: String = initial
+    
+    for item in array{
+        returnVal = combine(returnVal, item)
+    }
+    
+    return returnVal
+}
+
+func map<T, U>(array: [T], transform: (T) -> U) -> [U]{
+    var list: [U] = []
+    
+    for item in array{
+        list.append(transform(item))
+    }
+    
+    return list
+}
+
+func filter<T>(array: [T], isIncluded: (T) -> Bool) -> [T]{
+    var list: [T] = []
+    
+    for item in array{
+        if isIncluded(item){
+            list.append(item)
+        }
+    }
+    
+    return list
+}
+
+func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U{
+    var returnVal: U = initial
+    
+    for item in array{
+        returnVal = combine(returnVal, item)
+    }
+    
+    return returnVal
+}
