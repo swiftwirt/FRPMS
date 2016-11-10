@@ -68,7 +68,6 @@ func filterStrings(array: [String], isIncluded: (String) -> Bool) -> [String]{
     return list
 }
 
-
 func reduceIntsToInt(array: [Int], initial: Int, combine: (Int, Int) -> Int) -> Int{
     var returnVal: Int = initial
     
@@ -120,3 +119,4 @@ func reduce<T, U>(array: [T], initial: U, combine: (U, T) -> U) -> U{
     
     return returnVal
 }
+
