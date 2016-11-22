@@ -10,17 +10,17 @@ import Foundation
 
 
 extension String {
-  
-  func retrieveAccessToken() -> String? {
-    let accessTokenParam = self.components(separatedBy: "&").first
-    if let accessTokenParam = accessTokenParam {
-      return accessTokenParam.components(separatedBy: "=").last
+    
+    func retrieveAccessToken() -> String? {
+        let accessTokenParam = self.components(separatedBy: "&").first
+        if let accessTokenParam = accessTokenParam {
+            return accessTokenParam.components(separatedBy: "=").last
+        }
+        return nil
     }
-    return nil
-  }
-  
-  func lastPathComponent() -> String? {
-    return components(separatedBy: "/").last
-  }
-  
+    
+    func lastPathComponent() -> String? {
+        return components(separatedBy: "/").last
+    }
+    
 }

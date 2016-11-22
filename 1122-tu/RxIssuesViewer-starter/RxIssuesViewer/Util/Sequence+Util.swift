@@ -9,14 +9,14 @@
 import Foundation
 
 extension Sequence where Iterator.Element == (key: String, value: String) {
-  
-  func toURLArguments() -> String {
-    var result = ""
-    for tuple in self {
-      result += tuple.0 + "=" + tuple.1 + "&"
+    
+    func toURLArguments() -> String {
+        var result = ""
+        for tuple in self {
+            result += tuple.0 + "=" + tuple.1 + "&"
+        }
+        result = result.substring(to: result.index(before: result.endIndex))
+        return result
     }
-    result = result.substring(to: result.index(before: result.endIndex))
-    return result
-  }
-  
+    
 }

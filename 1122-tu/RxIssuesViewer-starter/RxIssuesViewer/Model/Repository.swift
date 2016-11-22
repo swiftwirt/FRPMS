@@ -9,8 +9,8 @@
 import Foundation
 
 struct Repository {
-  let identifier: Int
-  let language: String
-  let name: String
-  let fullName: String
+    let identifier: Int
+    let language: String
+    let name: String
+    let fullName: String
 }

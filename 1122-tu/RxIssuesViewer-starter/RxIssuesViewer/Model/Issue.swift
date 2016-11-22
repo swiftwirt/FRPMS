@@ -9,9 +9,9 @@
 import Foundation
 
 struct Issue {
-  let identifier: Int
-  let title: String
-  let postedBy: User
-  let open: Bool
-  let url: String
+    let identifier: Int
+    let title: String
+    let postedBy: User
+    let open: Bool
+    let url: String
 }
