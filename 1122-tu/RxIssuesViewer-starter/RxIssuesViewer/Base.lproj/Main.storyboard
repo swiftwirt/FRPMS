@@ -32,7 +32,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="7gU-vz-Isb" kind="show" id="nt4-Bc-LWn"/>
+                        <segue destination="7gU-vz-Isb" kind="show" identifier="ToUserSearch" id="nt4-Bc-LWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,7 +69,7 @@
                                 <frame key="frameInset" minX="16" minY="206" width="58" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKA-ye-CaH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKA-ye-CaH">
                                 <frame key="frameInset" minX="114" minY="494" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Repos"/>
@@ -80,6 +80,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="reposButton" destination="xKA-ye-CaH" id="Bun-xM-s1D"/>
+                        <outlet property="searchField" destination="5qX-Nq-YU2" id="BSj-B8-x8I"/>
+                        <outlet property="userInfoLabel" destination="uVt-4z-CW0" id="ZY6-PG-d3r"/>
+                        <outlet property="userOrOrgIcon" destination="PZo-vH-efr" id="FcB-kp-LJE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlb-pX-HFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +114,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="rgL-mT-G5C" customClass="IssueCellTableViewCell" customModule="RxIssuesViewer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="IssueCell" selectionStyle="default" indentationWidth="10" rowHeight="61" id="rgL-mT-G5C" customClass="IssueCell" customModule="RxIssuesViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rgL-mT-G5C" id="998-GU-lzR">
@@ -121,6 +127,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="issueTable" destination="n36-ZV-QR8" id="6mI-zD-3UH"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2444" y="37"/>
@@ -151,7 +160,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="7sy-xL-WJs" customClass="RepoCell" customModule="RxIssuesViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7sy-xL-WJs" id="rOb-5e-X9i">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RepoCell" tableViewCell="7sy-xL-WJs" id="rOb-5e-X9i">
                                             <frame key="frameInset" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -164,6 +173,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="repoTableView" destination="NUD-0U-ooX" id="dRC-Vs-KXI"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1678" y="36"/>

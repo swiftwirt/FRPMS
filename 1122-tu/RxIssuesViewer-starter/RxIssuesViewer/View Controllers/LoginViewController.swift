@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
         let urlString = RxGitHubAPI.loginURL()
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url, options: [:])
+            performSegue(withIdentifier: "ToUserSearch", sender: self)
         }
     }
 }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RepoSearchViewController: UIViewController {
+class RepoSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    @IBOutlet weak var repoTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,19 @@ class RepoSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0 // your number of cell here
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // your cell coding
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath) as! RepoCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // cell selected code here
+    }
 
     /*
     // MARK: - Navigation

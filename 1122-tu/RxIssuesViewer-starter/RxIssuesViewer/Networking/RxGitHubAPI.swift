@@ -15,7 +15,7 @@ class RxGitHubAPI {
     static private let clientSecret = "59340f8c7ed00129dcd840483e38d87c28892f64"
     static private var userAccessToken = ""
     
-    let baseURL = "https://api.github.com"
+    static let baseURL = "https://api.github.com"
     static let githubWebURL = "https://github.com"
     
     enum GitHubEndpoint {
@@ -72,7 +72,7 @@ class RxGitHubAPI {
     
     // MARK: URLs
     
-    func url(for endpoint: GitHubEndpoint) -> URL? {
+    static func url(for endpoint: GitHubEndpoint) -> URL? {
         var urlString = baseURL
         switch endpoint {
         case .user(let username):

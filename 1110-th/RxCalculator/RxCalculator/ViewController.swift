@@ -31,17 +31,29 @@ class ViewController: UIViewController {
         }
         
         let firstValObservable: Observable<Int> = firstValueTextField.rx.text.map {
-            return Int($0!)!
+            let val = $0 ?? "0"
+            return Int(val) ?? 0
         }
         
         let secondValObservable: Observable<Int> = secondValueTextField.rx.text.map {
-            return Int($0!)!
+            let val = $0 ?? "0"
+            return Int(val) ?? 0
         }
         
         
         let combineObservable: Observable<Int> = Observable.combineLatest(firstValObservable, secondValObservable) { firstVal, secondVal in
-            //switch operationTypeObservable
-            return firstVal + secondVal
+            var val = 0
+            
+            _ = operationTypeObservable
+                .asObservable()
+                .map{
+                    switch $0{
+                    case .addition: val = firstVal + secondVal
+                    case .subtraction: val = firstVal - secondVal
+                    }
+                }
+            
+            return val
         }
         
         let result: Observable<String> = combineObservable.map{

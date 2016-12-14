@@ -8,7 +8,8 @@
 
 import UIKit
 
-class IssueSearchViewController: UIViewController {
+class IssueSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var issueTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,21 @@ class IssueSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0 // your number of cell here
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // your cell coding
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueCell", for: indexPath) as! IssueCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // cell selected code here
+    }
+    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -30,6 +44,5 @@ class IssueSearchViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

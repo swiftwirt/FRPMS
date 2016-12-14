@@ -7,5 +7,6 @@ target 'RxOpenWeather' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
-  
+  pod 'RxAlamofire' 
+  pod 'ObjectMapper'
 end
