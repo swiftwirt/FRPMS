@@ -32,9 +32,17 @@ class TodaysWeatherViewController: UIViewController {
     }
     
     func setupRx(){
-        let cityFieldObservable: Observable<Weather?> = cityTextField.rx.text.asObservable().throttle(0.75, scheduler: MainScheduler() as SchedulerType).flatMapLatest {
-            return self.openWeatherAPI.createWeatherObservable(for: $0 ?? "")
-        }
+        let cityFieldObservable: Observable<Weather?> = cityTextField
+                                                        .rx
+                                                        .text
+                                                        .asObservable()
+                                                        .throttle(0.75, scheduler: MainScheduler() as SchedulerType)
+                                                        .distinctUntilChanged({
+                                                            return $0 == $1
+                                                        })
+                                                        .flatMapLatest {
+                                                            return self.openWeatherAPI.createWeatherObservable(for: $0 ?? "")
+                                                        }
         
         cityFieldObservable
             .map{
