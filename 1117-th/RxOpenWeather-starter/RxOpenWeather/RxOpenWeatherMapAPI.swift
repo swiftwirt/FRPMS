@@ -97,11 +97,11 @@ class RxOpenWeatherMapAPI {
     
     // MARK: Parsing
     
-    fileprivate func jsonToOptionalWeather(weatherInfo: [String: Any], tempUnit: TemperatureUnit) -> Weather? {
+    public func jsonToOptionalWeather(weatherInfo: [String: Any], tempUnit: TemperatureUnit) -> Weather? {
         return (String(describing: weatherInfo["cod"]!) == "200") ? Weather(JSON: weatherInfo, context: Context(unit: tempUnit, isList: false)) : nil
     }
     
-    fileprivate func makeAPICall(url: URL, completion: @escaping (String?, Error?) -> ()){
+    public func makeAPICall(url: URL, completion: @escaping (String?, Error?) -> ()){
         
         let session: URLSession = URLSession.shared
         
@@ -123,7 +123,7 @@ class RxOpenWeatherMapAPI {
     
     // MARK: Types & Constants
     
-    let apiKey = "9c964db2654c0150f1e991a61f8eaef0"
+    fileprivate let apiKey = "9c964db2654c0150f1e991a61f8eaef0"
     
     fileprivate let baseURL = "http://api.openweathermap.org/data/2.5"
     
@@ -142,7 +142,7 @@ class RxOpenWeatherMapAPI {
     }
     
     public static let maxForecastDays = 16
-    enum ForecastPeriod: Int {
+    public enum ForecastPeriod: Int {
         case oneDay = 1
         case twoDays
         case threeDays
